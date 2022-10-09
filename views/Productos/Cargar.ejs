@@ -1,0 +1,53 @@
+
+<% 
+
+let action, title;
+
+if (project?._id) {
+    action = "/admin/productos/" + project._id + "/editar";
+    title = "Editar Proyecto";
+} else {
+    action = "/admin/productos/nuevo";
+    title = "Nuevo Proyecto";
+}
+
+%> 
+
+<%- include('../Layout/Header', {title: "Nuevos productos"})%>
+
+    <h1><%= title %></h1>
+    <form action="<%= action %>" method="post" enctype="application/x-www-form-urlencoded">
+        <label class="form-label">
+            Nombre:
+            <input class="form-control" type="text" name="name" value="<%= project.name %>"/>
+        </label>
+
+        <label class="form-label">
+            Descripcion:
+            <input class="form-control" type="text" name="description" value="<%= project.description %>" />
+        </label>
+
+        <label class="form-label">
+            Link:
+            <input class="form-control" type="url" name="link" value="<%= project.link %>" />
+        </label>
+<!--
+        <label class="form-label">
+            Imagen:
+            <input  class="form-control" type="file" name="file" value="<%= project.img %>" />
+        </label>
+-->
+        <div action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="img" />
+        </div>
+
+        
+        <div class="mt-4">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+            <button class="btn btn-dark" type=""><a class="boton-blanco" href="/admin/productos">Volver</a></button>
+        </div>
+    </form>
+    
+
+    <%- include('../Layout/Footer')%>
+ 

@@ -1,0 +1,10 @@
+<%- include('../Layout/Header', {title: "Producto"})%>
+
+    <h1><%= project.name %></h1>
+    <img src="<%= project.img %>" alt="Imgen de proyecto">
+    <p>Descripcion: <%= project.description %></p>
+    <p>Link: <%= project.link %></p>
+    
+    <button class="btn btn-primary" type=""><a class="boton-blanco" href="/admin/productos">Volver</a></button>
+    
+<%- include('../Layout/Footer')%>

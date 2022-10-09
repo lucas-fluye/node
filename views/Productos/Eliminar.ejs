@@ -1,0 +1,17 @@
+<%- include('../Layout/Header', {title: "Eliminar proyecto"})%>
+
+    <h1>Eliminar Proyecto</h1>
+
+    <p>Nombre: <%= project.name %></p>
+    
+    <p>Descripcion: <%= project.description %></p>
+    <img src="<%= project.img %>" alt="">
+
+    <form class="mt-4" action="/admin/productos/<%= project._id %>/eliminar" method="post">
+        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <button class="btn btn-primary">
+            <a class="boton-blanco" href="/admin/productos">Volver</a>
+        </button>
+    </form>
+    
+<%- include('../Layout/Footer')%>

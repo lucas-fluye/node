@@ -1,0 +1,40 @@
+<%- include('../Layout/Header', {title: "Lista de proyectos"})%>
+
+        <h1>Administrador de Proyectos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Publicar</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Link</th>
+                    <th>Acciones</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < projects.length; i++) { %>
+                    <tr>
+                        <td class="">
+                            <input type="checkbox" class="form-check-input mt-2" onclick="alert('boton')" id="check-publicar">
+                            <label for="check-publicar"></label>
+                        </td>
+                        <td><%= projects[i].name %></td>
+                        <td><%= projects[i].description %></td>
+                        <td><%= projects[i].link %></td>
+                        <td>
+                            <button class="boton-blanco btn btn-warning " type="submit"><a class="boton-blanco" href="/admin/productos/<%= projects[i]._id %>">Ver</a></button>
+                            <button class="boton-blanco btn btn-primary " type="submit"><a class="boton-blanco" href="/admin/productos/<%= projects[i]._id %>/editar">Editar</a></button>
+                            <button class="boton-blanco btn btn-danger " type="submit"><a class="boton-blanco" href="/admin/productos/<%= projects[i]._id %>/eliminar">Eliminar</a></button>
+                        </td>
+                        
+                    </tr>
+                <% } %>
+                
+        </table>
+        <button class="btn btn-primary" type="submit"><a class="boton-blanco" href="/admin/productos/nuevo">Agregar nuevo</a></button>
+       
+        
+<%- include('../Layout/Footer')%>
+    

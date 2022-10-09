@@ -1,0 +1,17 @@
+<%- include('./Layout/Header', {title: "Home"})%>
+<p>Home</p>
+<h2>Muestrario</h2>
+
+<div class="producto-home">
+<% for (let i = 0; i < projects.length; i++) { %>
+
+    <section>
+        <img src="<%= projects[i].img %>" alt="imagen de proyecto">
+        <h3><%= projects[i].name %></h3>
+        <p>Descripcion: <%= projects[i].description %></p>
+        <p>Link: <%= projects[i].link %></p>
+    </section>
+
+<% } %>
+</div>
+<%- include('./Layout/Footer')%>
